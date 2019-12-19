@@ -1,0 +1,49 @@
+{
+  "name": "template-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js",
+    "migrate": "sequelize db:migrate",
+    "pretest-linux": "NODE_ENV=test sequelize db:migrate",
+    "test-linux": "NODE_ENV=test jest",
+    "posttest-linux": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "pretest-win": "set NODE_ENV=test && sequelize db:migrate",
+    "test-win": "set NODE_ENV=test && jest",
+    "posttest-win": "set NODE_ENV=test && sequelize db:migrate:undo:all"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.9.4",
+    "youch": "^2.0.10",
+    "yup": "^0.28.0"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "@types/jest": "^24.0.24",
+    "@types/yup": "^0.26.26",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "sequelize-cli": "^5.5.0",
+    "sucrase": "^3.10.1",
+    "supertest": "^4.0.2"
+  }
+}
