@@ -14,7 +14,10 @@ const ToolsSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
+    tags: {
+      type: Array,
+      required: true,
+    },
   },
   {
     timestamps: true,
